@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09121a" />
+    <meta name="description" content="A first-person 3D portal puzzle experiment with five test chambers." />
+    <title>Portal Blackmagic | Ray Tracing Lab</title>
+  </head>
+  <body>
+    <div id="root"><section id="boot-notice" style="padding:48px;max-width:680px;margin:10vh auto;font:16px/1.6 system-ui;color:#d9ecf4;background:#12232f;border-radius:12px">
+      <h1>Portal Blackmagic</h1><p id="boot-status" role="status">Starting the renderer...</p>
+      <p><a href="?renderer=raster" style="color:#b1efdc">Start with Fast lighting</a> · <a href="/gpu-check.html" style="color:#b1efdc">Independent GPU check</a></p>
+      <noscript>JavaScript is required to run this game.</noscript>
+    </section></div>
+    <script>
+      (() => {
+        const explain = (message) => { const el = document.getElementById('boot-status'); if (el) el.textContent = message; };
+        window.addEventListener('error', () => explain('The game module did not start. Try a reload or the independent GPU check.'));
+        window.addEventListener('unhandledrejection', () => explain('Startup failed before the game was ready. Use the GPU check for details.'));
+        setTimeout(() => explain('Startup is taking longer than expected. Check graphics acceleration, or try Fast lighting.'), 20000);
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
