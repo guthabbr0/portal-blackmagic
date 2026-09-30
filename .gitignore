@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.vercel/
+.env
+.env.*
+!.env.example
+tests/generated/
+GPU-CHECK.html
+public/gpu-check.html
